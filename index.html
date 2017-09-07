@@ -324,7 +324,40 @@
       
         
           
-            
+            <h1 id="爬虫汇总"><a href="#爬虫汇总" class="headerlink" title="爬虫汇总"></a>爬虫汇总</h1><h3 id="得到页面"><a href="#得到页面" class="headerlink" title="得到页面"></a>得到页面</h3><ul>
+<li>requests<blockquote>
+<p>   import requests</p>
+<p>   url = “#”<br>   html = requests.get(url)<br>   html.text #文本<br>   html.content #二进制文本</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解析页面"><a href="#解析页面" class="headerlink" title="解析页面"></a>解析页面</h3><ol>
+<li><p>bs4</p>
+<blockquote>
+<p>   from bs4 improt BeautifulSoup</p>
+<p>   html = requests.get(url)<br>   soup = BeautifulSoup(html.text,’lxml’)<br>   soup.find_all(‘tag’)</p>
+</blockquote>
+</li>
+<li><p>re</p>
+<blockquote>
+<p>   import re</p>
+<p>   html = requests.get(url)<br>   pattern = re.compile(r’ ‘)<br>   content = re.findall(pattern,html)</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="自动化测试工具-浏览器"><a href="#自动化测试工具-浏览器" class="headerlink" title="自动化测试工具+浏览器"></a>自动化测试工具+浏览器</h3><ul>
+<li>selenium+phantomjs<blockquote>
+<p>   from selenium import webdriver<br>   from selenium.webdriver.common.by import By<br>   from selenium.webdriver.support.ui import WebDriverWait<br>   from selenium.webdriver.support import expected_conditions</p>
+<p>   driver = webdriver.PhantomJS() #phantomjs需提前设置好path<br>   wait = WebDriverWait(driver,10) #等待页面加载</p>
+<p>   driver.get(“#”)</p>
+<p>   input = wait.until(</p>
+<pre><code>expected_conditions.presence_of_element_located((By.CSS_SELECTOR,&apos;#q&apos;))    #等待一定条件的内容加载完毕
+</code></pre><p>   )</p>
+<p>   input.send_keys(‘’) #输入内容</p>
+</blockquote>
+</li>
+</ul>
+
           
         
       

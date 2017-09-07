@@ -87,13 +87,49 @@
 
 
 
+<meta name="description" content="爬虫汇总得到页面
+requests
+   import requests
+   url = “#”   html = requests.get(url)   html.text #文本   html.content #二进制文本
+
+
+
+解析页面
+bs4
+
+   from bs4 improt BeautifulSoup
+   html = requests.get(url)   soup = Be">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫汇总">
 <meta property="og:url" content="http://yoursite.com/child/2017/09/07/爬虫汇总/index.html">
 <meta property="og:site_name" content="zy-star's Blog">
-<meta property="og:updated_time" content="2017-09-07T08:27:00.000Z">
+<meta property="og:description" content="爬虫汇总得到页面
+requests
+   import requests
+   url = “#”   html = requests.get(url)   html.text #文本   html.content #二进制文本
+
+
+
+解析页面
+bs4
+
+   from bs4 improt BeautifulSoup
+   html = requests.get(url)   soup = Be">
+<meta property="og:updated_time" content="2017-09-07T09:46:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫汇总">
+<meta name="twitter:description" content="爬虫汇总得到页面
+requests
+   import requests
+   url = “#”   html = requests.get(url)   html.text #文本   html.content #二进制文本
+
+
+
+解析页面
+bs4
+
+   from bs4 improt BeautifulSoup
+   html = requests.get(url)   soup = Be">
 
 
 
@@ -318,7 +354,40 @@
       
 
       
-        
+        <h1 id="爬虫汇总"><a href="#爬虫汇总" class="headerlink" title="爬虫汇总"></a>爬虫汇总</h1><h3 id="得到页面"><a href="#得到页面" class="headerlink" title="得到页面"></a>得到页面</h3><ul>
+<li>requests<blockquote>
+<p>   import requests</p>
+<p>   url = “#”<br>   html = requests.get(url)<br>   html.text #文本<br>   html.content #二进制文本</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解析页面"><a href="#解析页面" class="headerlink" title="解析页面"></a>解析页面</h3><ol>
+<li><p>bs4</p>
+<blockquote>
+<p>   from bs4 improt BeautifulSoup</p>
+<p>   html = requests.get(url)<br>   soup = BeautifulSoup(html.text,’lxml’)<br>   soup.find_all(‘tag’)</p>
+</blockquote>
+</li>
+<li><p>re</p>
+<blockquote>
+<p>   import re</p>
+<p>   html = requests.get(url)<br>   pattern = re.compile(r’ ‘)<br>   content = re.findall(pattern,html)</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="自动化测试工具-浏览器"><a href="#自动化测试工具-浏览器" class="headerlink" title="自动化测试工具+浏览器"></a>自动化测试工具+浏览器</h3><ul>
+<li>selenium+phantomjs<blockquote>
+<p>   from selenium import webdriver<br>   from selenium.webdriver.common.by import By<br>   from selenium.webdriver.support.ui import WebDriverWait<br>   from selenium.webdriver.support import expected_conditions</p>
+<p>   driver = webdriver.PhantomJS() #phantomjs需提前设置好path<br>   wait = WebDriverWait(driver,10) #等待页面加载</p>
+<p>   driver.get(“#”)</p>
+<p>   input = wait.until(</p>
+<pre><code>expected_conditions.presence_of_element_located((By.CSS_SELECTOR,&apos;#q&apos;))    #等待一定条件的内容加载完毕
+</code></pre><p>   )</p>
+<p>   input.send_keys(‘’) #输入内容</p>
+</blockquote>
+</li>
+</ul>
+
       
     </div>
 
@@ -409,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg"
@@ -454,6 +532,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#爬虫汇总"><span class="nav-number">1.</span> <span class="nav-text">爬虫汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#得到页面"><span class="nav-number">1.0.1.</span> <span class="nav-text">得到页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析页面"><span class="nav-number">1.0.2.</span> <span class="nav-text">解析页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动化测试工具-浏览器"><span class="nav-number">1.0.3.</span> <span class="nav-text">自动化测试工具+浏览器</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
