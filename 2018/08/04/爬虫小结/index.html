@@ -87,22 +87,49 @@
 
 
 
-<meta name="description" content="hexo更新文章 1). hexo new “file_name” 2). hexo generate 3). hexo deploy
-mysqlclient 代替 MySQLdb
-linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“local_address”: “127.0.0.1”,“local_port”:1080,“password”">
+<meta name="description" content="爬虫汇总得到页面
+requests
+  import requests
+  url = “#”  html = requests.get(url)  html.text #文本  html.content #二进制文本
+
+
+
+解析页面
+bs4
+
+  from bs4 improt BeautifulSoup
+  html = requests.get(url)  soup = BeautifulS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tips">
-<meta property="og:url" content="http://yoursite.com/child/2018/08/04/tips/index.html">
+<meta property="og:title" content="爬虫小结">
+<meta property="og:url" content="http://yoursite.com/child/2018/08/04/爬虫小结/index.html">
 <meta property="og:site_name" content="y-xerxes's Blog">
-<meta property="og:description" content="hexo更新文章 1). hexo new “file_name” 2). hexo generate 3). hexo deploy
-mysqlclient 代替 MySQLdb
-linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“local_address”: “127.0.0.1”,“local_port”:1080,“password”">
-<meta property="og:updated_time" content="2018-08-04T11:44:39.000Z">
+<meta property="og:description" content="爬虫汇总得到页面
+requests
+  import requests
+  url = “#”  html = requests.get(url)  html.text #文本  html.content #二进制文本
+
+
+
+解析页面
+bs4
+
+  from bs4 improt BeautifulSoup
+  html = requests.get(url)  soup = BeautifulS">
+<meta property="og:updated_time" content="2018-08-04T11:46:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tips">
-<meta name="twitter:description" content="hexo更新文章 1). hexo new “file_name” 2). hexo generate 3). hexo deploy
-mysqlclient 代替 MySQLdb
-linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“local_address”: “127.0.0.1”,“local_port”:1080,“password”">
+<meta name="twitter:title" content="爬虫小结">
+<meta name="twitter:description" content="爬虫汇总得到页面
+requests
+  import requests
+  url = “#”  html = requests.get(url)  html.text #文本  html.content #二进制文本
+
+
+
+解析页面
+bs4
+
+  from bs4 improt BeautifulSoup
+  html = requests.get(url)  soup = BeautifulS">
 
 
 
@@ -130,13 +157,13 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
 
 
 
-  <link rel="canonical" href="http://yoursite.com/child/2018/08/04/tips/"/>
+  <link rel="canonical" href="http://yoursite.com/child/2018/08/04/爬虫小结/"/>
 
 
 
 
 
-  <title> tips | y-xerxes's Blog </title>
+  <title> 爬虫小结 | y-xerxes's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +282,7 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/08/04/tips/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/08/04/爬虫小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xerxes">
@@ -276,7 +303,7 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
             
             
               
-                tips
+                爬虫小结
               
             
           </h1>
@@ -291,7 +318,7 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T19:43:08+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T19:45:52+08:00">
                 2018-08-04
               </time>
             
@@ -327,12 +354,40 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
       
 
       
-        <ol>
-<li>hexo更新文章<br> 1). hexo new “file_name”<br> 2). hexo generate<br> 3). hexo deploy</li>
-<li>mysqlclient 代替 MySQLdb</li>
-<li>linux配置shadowsocks<br>配置文件：<br>{<br>“server”:”<em>“,<br>“server_port”:</em>,<br>“local_address”: “127.0.0.1”,<br>“local_port”:1080,<br>“password”:”<em>bh</em>“,<br>“timeout”:300,<br>“method”:”<em>aes-256-cfb</em>“<br>}<br>启动：<br>ssserver -c shadowsocks.json -d start</li>
-<li>ubuntu分辨率<br> 1）. cvt 1680 1050<br> 2）. sudo xrandr –newmode “1680<em>1050_60.00” 146.25 1680 1784 1960 2240 1050 1053 1059 1089 -hsync +vsync<br> 3）. sudo xrandr –addmode VGA-1 “1680</em>1050_60.00”<br> 4）. sudo xrandr –output VGA-1 –mode “1680*1050_60.00”</li>
+        <h1 id="爬虫汇总"><a href="#爬虫汇总" class="headerlink" title="爬虫汇总"></a>爬虫汇总</h1><h3 id="得到页面"><a href="#得到页面" class="headerlink" title="得到页面"></a>得到页面</h3><ul>
+<li>requests<blockquote>
+<p>  import requests</p>
+<p>  url = “#”<br>  html = requests.get(url)<br>  html.text #文本<br>  html.content #二进制文本</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解析页面"><a href="#解析页面" class="headerlink" title="解析页面"></a>解析页面</h3><ol>
+<li><p>bs4</p>
+<blockquote>
+<p>  from bs4 improt BeautifulSoup</p>
+<p>  html = requests.get(url)<br>  soup = BeautifulSoup(html.text,’lxml’)<br>  soup.find_all(‘tag’)</p>
+</blockquote>
+</li>
+<li><p>re</p>
+<blockquote>
+<p>  import re</p>
+<p>  html = requests.get(url)<br>  pattern = re.compile(r’ ‘)<br>  content = re.findall(pattern,html)</p>
+</blockquote>
+</li>
 </ol>
+<h3 id="自动化测试工具-浏览器"><a href="#自动化测试工具-浏览器" class="headerlink" title="自动化测试工具+浏览器"></a>自动化测试工具+浏览器</h3><ul>
+<li>selenium+phantomjs<blockquote>
+<p>  from selenium import webdriver<br>  from selenium.webdriver.common.by import By<br>  from selenium.webdriver.support.ui import WebDriverWait<br>  from selenium.webdriver.support import expected_conditions</p>
+<p>  driver = webdriver.PhantomJS() #phantomjs需提前设置好path<br>  wait = WebDriverWait(driver,10) #等待页面加载</p>
+<p>  driver.get(“#”)</p>
+<p>  input = wait.until(</p>
+<pre><code>expected_conditions.presence_of_element_located((By.CSS_SELECTOR,&apos;#q&apos;)) #等待一定条件的内容加载完毕
+</code></pre><p>  )</p>
+<p>  input.send_keys(‘’) #输入内容</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="can’t-find-a-amtching-set-of-capacity"><a href="#can’t-find-a-amtching-set-of-capacity" class="headerlink" title="can’t find a amtching set of capacity"></a>can’t find a amtching set of capacity</h3><p>from selenium.webdriver.common.desired_capabilities import DesiredCapabilities<br>cap = DesiredCapabilities().FIREFOX<br>cap[“marionette”] = False<br>driver = webdriver.Firefox(capabilities=cap)</p>
 
       
     </div>
@@ -369,14 +424,18 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/04/uwsgi-nginx-supervisor部署/" rel="next" title="uwsgi+nginx+supervisor部署">
+                <i class="fa fa-chevron-left"></i> uwsgi+nginx+supervisor部署
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/04/uwsgi-nginx-supervisor部署/" rel="prev" title="uwsgi+nginx+supervisor部署">
-                uwsgi+nginx+supervisor部署 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/04/大数据/" rel="prev" title="大数据">
+                大数据 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -424,8 +483,17 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg"
@@ -469,6 +537,22 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#爬虫汇总"><span class="nav-number">1.</span> <span class="nav-text">爬虫汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#得到页面"><span class="nav-number">1.0.1.</span> <span class="nav-text">得到页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析页面"><span class="nav-number">1.0.2.</span> <span class="nav-text">解析页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动化测试工具-浏览器"><span class="nav-number">1.0.3.</span> <span class="nav-text">自动化测试工具+浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#can’t-find-a-amtching-set-of-capacity"><span class="nav-number">1.0.4.</span> <span class="nav-text">can’t find a amtching set of capacity</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
