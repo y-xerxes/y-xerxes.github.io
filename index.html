@@ -247,6 +247,427 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/08/04/tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xerxes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="y-xerxes's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/08/04/tips/" itemprop="url">
+                  tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T19:36:18+08:00">
+                2018-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li></li>
+<li>mysqlclient 代替 MySQLdb</li>
+<li>linux配置shadowsocks<br>配置文件：<br>{<br>“server”:”<em>“,<br>“server_port”:</em>,<br>“local_address”: “127.0.0.1”,<br>“local_port”:1080,<br>“password”:”<em>bh</em>“,<br>“timeout”:300,<br>“method”:”<em>aes-256-cfb</em>“<br>}<br>启动：<br>ssserver -c shadowsocks.json -d start</li>
+<li>ubuntu分辨率<br> 1）. cvt 1680 1050<br> 2）. sudo xrandr –newmode “1680<em>1050_60.00” 146.25 1680 1784 1960 2240 1050 1053 1059 1089 -hsync +vsync<br> 3）. sudo xrandr –addmode VGA-1 “1680</em>1050_60.00”<br> 4）. sudo xrandr –output VGA-1 –mode “1680*1050_60.00”</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/07/10/docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xerxes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="y-xerxes's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/07/10/docker/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-10T11:34:13+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>下载SQL Server<br> Xerxes% docker pull microsoft/mssql-server-linux</p>
+</li>
+<li><p>启动Docker镜像<br> Xerxes% docker run -d –name sql_server_demo -e’ACCEPT_EULA=Y’ -e’SA_PASSWORD=zyxing,0513’ -p1433:1433 microsoft/mssql-server-linux</p>
+</li>
+<li><p>检查Docker容器<br> Xerxes% docker ps</p>
+</li>
+<li><p>安装sql-cli<br> Xerxes% sudo npm install -g sql-cli</p>
+</li>
+<li><p>更改SA密码<br> Xerxes% sudo docker exec -it sql_server_demo /opt/mssql-tools/bin/sqlcmd \<br>-S localhost -U SA -P ‘zyxing,0513’ \<br>-Q ‘ALTER LOGIN sa WITH PASSWORD=”zyxing,0513”‘</p>
+</li>
+<li><p>连接到SQL Server<br> Xerxes%  sudo docker exec -it sql_server_demo “bash”</p>
+</li>
+<li><p>一旦进入容器，用sqlcmd本地连接。Sqlcmd默认不在路径中，因此您必须指定完整路径。<br> @89191dab957e:/# /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P ‘zyxing,0513’</p>
+</li>
+<li><p>启动容器<br> docker container start ‘container’</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/06/23/java学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xerxes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="y-xerxes's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/23/java学习笔记/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T18:55:58+08:00">
+                2018-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h1><h3 id="抽象类（abstract-class）："><a href="#抽象类（abstract-class）：" class="headerlink" title="抽象类（abstract class）："></a>抽象类（abstract class）：</h3><pre><code>使用abstract修饰符修饰的类。官方点的定义就是：如果一个类没有包含足够多的信息来描述一个具体的对象，这样的类就是抽象类。
+抽象方法：只声明，不实现。
+一个类中含有抽象方法（被abstract修饰），那么这个类必须被声明为抽象类（被abstract修饰）。
+</code></pre><h3 id="接口（interface）："><a href="#接口（interface）：" class="headerlink" title="接口（interface）："></a>接口（interface）：</h3><pre><code>官方定义：接口在java中是一个抽象类型，是抽象方法的集合。一个类通过继承接口的方式，从而继承接口的抽象方法。
+接口中没有构造方式（因为接口不是类）
+接口中的方法必须是抽象的（不能实现）
+接口中除了static、final变量，不能有其他变量
+接口支持多继承（一个类可以实现多个接口）
+</code></pre><h3 id="抽象类和接口的区别："><a href="#抽象类和接口的区别：" class="headerlink" title="抽象类和接口的区别："></a>抽象类和接口的区别：</h3><pre><code>抽象类中可以有已经实现了的方法，也可以有被abstract修饰的方法（抽象方法），但是接口要求只能包含抽象方法.
+抽象类使用extends关键字来继承抽象类。如果子类不是抽象类的话，它需要提供抽象类中所有声明的方法的实现。子类使用关键字implements来实现接口。它需要提供接口中所有声明的方法的实现.
+抽象类可以有构造器，而接口不能有构造器.
+抽象方法可以有public、protected和default这些修饰符 
+</code></pre><p>接口方法默认修饰符是public。你不可以使用其它修饰符。</p>
+<h1 id="修饰符访问限定"><a href="#修饰符访问限定" class="headerlink" title="修饰符访问限定"></a>修饰符访问限定</h1><pre><code>范围  private     default     protected   public
+同类  √   √   √   √
+同包中的类       √   √   √
+同包中的类，不同包的子类            √   √
+所有类                 √
+</code></pre><h1 id="Java中堆内存和栈内存详解"><a href="#Java中堆内存和栈内存详解" class="headerlink" title="Java中堆内存和栈内存详解"></a>Java中堆内存和栈内存详解</h1><blockquote>
+<p>Java把内存分成两种，一种叫做<code>栈内存</code>，一种叫做<code>堆内存</code>.</p>
+<h3 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h3><p>栈内存用来存储<code>基本数据类型的对象</code>和<code>自定义对象的引用</code>。栈内存是线程私有的。<br>当在一段代码块中定义一个变量时，java就在栈中为这个变量分配内存空间，当超过变量的作用域后，java会自动释放掉为该变量分配的内存空间，该内存空间可以立刻被另作他用。</p>
+<h3 id="堆内存"><a href="#堆内存" class="headerlink" title="堆内存"></a>堆内存</h3><p>堆内存用于存放由new创建的对象和数组。堆内存是所有线程共有的。<br>在堆中分配的内存，由java虚拟机自动垃圾回收器来管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，在栈中的这个特殊的变量就变成了数组或者对象的引用变量，以后就可以在程序中使用栈内存中的引用变量来访问堆中的数组或者对象.<br>引用变量是普通变量，定义时在栈中分配内存，引用变量在程序运行到作用域外释放。而数组＆对象本身在堆中分配，即使程序运行到使用new产生数组和对象的语句所在地代码块之外，数组和对象本身占用的堆内存也不会被释放，数组和对象在没有引用变量指向它的时候，才变成垃圾，不能再被使用，但是仍然占着内存，在随后的一个不确定的时间被垃圾回收器释放掉。这个也是java比较占内存的主要原因，实际上，栈中的变量指向堆内存中的变量，这就是 Java 中的指针! </p>
+</blockquote>
+<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><h3 id="什么是内部类"><a href="#什么是内部类" class="headerlink" title="什么是内部类"></a>什么是内部类</h3><blockquote>
+<p>可以将一个类的定义放在另一个类的内部，这就是内部类。<br>内部类隐式的持有外部类的引用，，可以访问外部类的所有成员，即使该成员是私有的。它无法被单独创建，必须先创建外部类实例.</p>
+</blockquote>
+<h3 id="为什么需要内部类，内部类的作用"><a href="#为什么需要内部类，内部类的作用" class="headerlink" title="为什么需要内部类，内部类的作用"></a>为什么需要内部类，内部类的作用</h3><pre><code>1.完善多重继承
+    每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。
+2.闭包与回调
+3.lambda表达式
+4.匿名内部类
+    Runnable接口的匿名内部类实现
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        Runnable r = <span class="keyword">new</span> Runnable()&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)&#123;</div><div class="line">                    System.out.print(i + <span class="string">" "</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        Thread t = <span class="keyword">new</span> Thread(r);</div><div class="line">        t.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h3 id="error和exception有什么区别"><a href="#error和exception有什么区别" class="headerlink" title="error和exception有什么区别"></a>error和exception有什么区别</h3><blockquote>
+<p>error表示系统级的错误，是java运行环境内部错误或者硬件问题，不能指望程序来处理这样的问题，除了退出运行外别无选择，它是Java虚拟机抛出的。<br>exception表示程序需要捕捉、需要处理的异常，是由与程序设计的不完善而出现的问题，程序必须处理的问题</p>
+</blockquote>
+<h3 id="运行时异常和一般异常有何不同"><a href="#运行时异常和一般异常有何不同" class="headerlink" title="运行时异常和一般异常有何不同"></a>运行时异常和一般异常有何不同</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/06/22/bigTable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,10 +745,8 @@
       
         
           
-            <h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><h3 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h3><pre><code>./zkServer.sh start #启动zookeeper服务器
-./zkServer.sh status#查看状态
-./zkCli.sh -server 127.0.0.1:2181 #启动客户端
-</code></pre><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>1.把zookeeper文件夹复制三份，我们仅修改\conf\zoo.cfg
+            <p>[TOC]</p>
+<h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>1.把zookeeper文件夹复制三份，我们仅修改\conf\zoo.cfg
     tickTime=2000
     initLimit=5
     syncLimit=2
@@ -338,163 +757,105 @@
     server.1=127.0.0.1:8881:7771
     server.2=127.0.0.1:8882:7772
 2.分别在文件夹/tmp/zookeeper/data00,data01和data02下面新建myid文件，文件内容只有一个数字，代表zookeeper节点的唯一id，即要确保此id在集群内唯一，且要跟配置文件中的server.0、server.1、server.2 对应上。
+</code></pre><h3 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h3><pre><code>./zkServer.sh start &amp; #启动zookeeper服务器
+./zkServer.sh status#查看状态
+./zkCli.sh -server 127.0.0.1:2182 #启动客户端
 </code></pre><h1 id="kafka"><a href="#kafka" class="headerlink" title="kafka"></a>kafka</h1><h3 id="配置文件-1"><a href="#配置文件-1" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>仅仅修改server.properties文件，把\config\server.properties文件复制2份，分别是server.properties，server_1.properties，server_2.properties，
 
-文件server.properties
+0.文件server.properties
+    broker.id=0
+    listeners=PLAINTEXT://localhost:9092
+    log.dirs=/tmp/kafka-logs-0
+    num.partitions=3
+    zookeeper.connect=localhost:2184,localhost:2182,localhost:2183
 
-broker.id=0
-listeners=PLAINTEXT://localhost:9092
-log.dirs=/tmp/kafka-logs-0
-num.partitions=3
-zookeeper.connect=localhost:2181,localhost:2182,localhost:2183
+1.文件server_1.properties
+    broker.id=1
+    listeners=PLAINTEXT://localhost:9093
+    log.dirs=/tmp/kafka-logs-1
+    num.partitions=3
+    zookeeper.connect=localhost:2184,localhost:2182,localhost:2183
 
-文件server_1.properties
-
-broker.id=1
-listeners=PLAINTEXT://localhost:9093
-log.dirs=/tmp/kafka-logs-1
-num.partitions=3
-zookeeper.connect=localhost:2181,localhost:2182,localhost:2183
-
-文件server_2.properties
-
-broker.id=2
-listeners=PLAINTEXT://localhost:9094
-log.dirs=/tmp/kafka-logs-2
-num.partitions=3
-zookeeper.connect=localhost:2181,localhost:2182,localhost:2183
+2.文件server_2.properties
+    broker.id=2
+    listeners=PLAINTEXT://localhost:9094
+    log.dirs=/tmp/kafka-logs-2
+    num.partitions=3
+    zookeeper.connect=localhost:2184,localhost:2182,localhost:2183
 </code></pre><h3 id="启动kafka-broker"><a href="#启动kafka-broker" class="headerlink" title="启动kafka broker"></a>启动kafka broker</h3><pre><code>bin/kafka-server-start.sh -daemon config/server.properties
 bin/kafka-server-start.sh -daemon config/server_1.properties
 bin/kafka-server-start.sh -daemon config/server_2.properties
 </code></pre><h3 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建topic</h3><pre><code>bin/kafka-topics.sh --create --zookeeper localhost:2182 --replication-factor 3 --partitions 1 --topic mytopic
-</code></pre><h3 id="创建后，使用-–describe-来查看一下"><a href="#创建后，使用-–describe-来查看一下" class="headerlink" title="创建后，使用 –describe 来查看一下"></a>创建后，使用 –describe 来查看一下</h3><pre><code>bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic mytopic
+</code></pre><h3 id="创建后，使用-–describe-来查看一下"><a href="#创建后，使用-–describe-来查看一下" class="headerlink" title="创建后，使用 –describe 来查看一下"></a>创建后，使用 –describe 来查看一下</h3><pre><code>bin/kafka-topics.sh --describe --zookeeper localhost:2182 --topic mytopic
 </code></pre><h3 id="现在我们分别在两个终端上运行下面的命令来测试生产消息和消费消息。"><a href="#现在我们分别在两个终端上运行下面的命令来测试生产消息和消费消息。" class="headerlink" title="现在我们分别在两个终端上运行下面的命令来测试生产消息和消费消息。"></a>现在我们分别在两个终端上运行下面的命令来测试生产消息和消费消息。</h3><pre><code># 终端 A 生产消息
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 # 终端 B 消费消息
 $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic mytopic
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/04/02/linux配置shadowsocks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xerxes">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="y-xerxes's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/02/linux配置shadowsocks/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T16:36:03+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="linux配置shadowsocks"><a href="#linux配置shadowsocks" class="headerlink" title="linux配置shadowsocks"></a>linux配置shadowsocks</h3><p>配置文件：<br>{<br>“server”:”23.83.240.133”,<br>“server_port”:9005,<br>“local_address”: “127.0.0.1”,<br>“local_port”:1080,<br>“password”:”bh”,<br>“timeout”:300,<br>“method”:”aes-256-cfb”<br>}</p>
-<p>启动：<br>ssserver -c shadowsocks.json -d start</p>
-
+</code></pre><h1 id="flume"><a href="#flume" class="headerlink" title="flume"></a>flume</h1><h3 id="配置文件-2"><a href="#配置文件-2" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>1.修改 flume-env.sh 配置文件,主要是JAVA_HOME变量设置
+2.cp conf/flume-conf.properties.template conf/exec.conf
+    示例：
+        # Name the components(成分) on this agent
+        a2.sources = r2
+        a2.sinks = k2
+        a2.channels = c2
+        # Describe/configure the source
+        a2.sources.r2.type = exec
+        a2.sources.r2.channels = c2
+        a2.sources.r2.command=tail -n +0 -F /Users/zhangyaxing/Desktop/flume-1.6.0/test.log
+        # Describe the sink
+        a2.sinks.k2.type = logger
+        # Use a channel which buffers events in memory
+        a2.channels.c2.type = memory
+        a2.channels.c2.capacity = 1000
+        a2.channels.c2.transactionCapacity = 100
+        # Bind the source and sink to the channel
+        a2.sources.r2.channels = c2
+        a2.sinks.k2.channel = c2
+</code></pre><h3 id="命令行操作-1"><a href="#命令行操作-1" class="headerlink" title="命令行操作"></a>命令行操作</h3><pre><code>验证安装：
+    flume-ng version
+启动flume：
+    flume-ng agent --conf conf/ -f conf/exec.conf -Dflume.root.logger=DEBUG,console -n a2
+</code></pre><h1 id="flume-—–-gt-kafka"><a href="#flume-—–-gt-kafka" class="headerlink" title="flume —–&gt; kafka"></a>flume —–&gt; kafka</h1><blockquote>
+<p>Flume与Kafka整合就是接口的实现，将Kafka的producer API实现为Flume的sink。简单理解就是将Flume的输出（sinks）作为Kafka的输入（producer）。</p>
+<h3 id="配置文件-3"><a href="#配置文件-3" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>a1.sources = s1
+a1.sinks = k1
+a1.channels = c1
+# a1 : name of agent
+# Describe/configure the source
+a1.sources.s1.type=exec
+a1.sources.s1.command=tail -F /Users/zhangyaxing/Desktop/flume-1.6.0/test.log
+a1.sources.s1.channels=c1
+# Describe the sink
+a1.sinks.k1.type = org.apache.flume.sink.kafka.KafkaSink
+a1.sinks.k1.topic = flumeTest  
+a1.sinks.k1.brokerList = localhost:9092,localhost:9093,localhost:9094
+agent.sinks.k1.serializer.class=kafka.serializer.StringEncoder  
+a1.sinks.k1.channel = c1 
+# Use a channel which buffers events in memory
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 10000
+a1.channels.c1.transactionCapacity = 100
+# Bind the source and sink to the channel
+a1.sources.r1.channels = c1
+a1.sinks.k1.channel = c1
+</code></pre><h3 id="启动flume连接到kafka"><a href="#启动flume连接到kafka" class="headerlink" title="启动flume连接到kafka"></a>启动flume连接到kafka</h3><pre><code>flume-ng agent -n a1 -c conf/ -f conf/flume-conf.properties -Dflume.root.logger=INFO,console  
+</code></pre><h3 id="启动kafka消费者接受数据"><a href="#启动kafka消费者接受数据" class="headerlink" title="启动kafka消费者接受数据"></a>启动kafka消费者接受数据</h3><pre><code>kafka-console-consumer.sh --zookeeper localhost:2182,localhost:2183,localhost:2184 --topic flumeTest --from-beginning
+</code></pre></blockquote>
+<h1 id="kafka-—–-gt-spark-streaming"><a href="#kafka-—–-gt-spark-streaming" class="headerlink" title="kafka —–&gt; spark streaming"></a>kafka —–&gt; spark streaming</h1><h3 id="什么是Spark-Streaming"><a href="#什么是Spark-Streaming" class="headerlink" title="什么是Spark Streaming"></a>什么是Spark Streaming</h3><blockquote>
+<p>流式处理是把连续不断的数据输入分割成单元数据块来处理。<br>Spark Streaming对Spark核心API进行了相应的扩展，支持高吞吐、低延迟、可扩展的流式数据处理。</p>
+</blockquote>
+<h3 id="自己管理offset"><a href="#自己管理offset" class="headerlink" title="自己管理offset"></a>自己管理offset</h3><blockquote>
+<p>为了让Spark Streaming消费kafka的数据不丢数据，可以创建Kafka Direct DStream，由Spark Streaming自己管理offset，并不是存到zookeeper。启用S​​park Streaming的 checkpoints是存储偏移量的最简单方法，因为它可以在Spark的框架内轻松获得。 checkpoints将应用程序的状态保存到HDFS，以便在故障时可以恢复。如果发生故障，Spark Streaming应用程序可以从checkpoints偏移范围读取消息。但是，Spark Streaming checkpoints在应用程序修改后由于从checkpoint反序列化失败而无法恢复，因此不是非常可靠，特别是如果您将此机制用于关键生产应用程序，另外，基于zookeeper的offset可视化工具将无法使用。我们不建议通过Spark checkpoints来管理偏移量。因此本文将手动存储offset到zookeeper，完全自我掌控offset。</p>
+</blockquote>
+<h3 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h3><pre><code>KafkaManager.scala
+</code></pre><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.apache.spark.streaming.kafka</div><div class="line"><span class="keyword">import</span> kafka.common.<span class="type">TopicAndPartition</span></div><div class="line"><span class="keyword">import</span> kafka.message.<span class="type">MessageAndMetadata</span></div><div class="line"><span class="keyword">import</span> kafka.serializer.<span class="type">Decoder</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkException</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.<span class="type">StreamingContext</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.dstream.<span class="type">InputDStream</span></div><div class="line"><span class="keyword">import</span> org.apache.spark.streaming.kafka.<span class="type">KafkaCluster</span>.<span class="type">LeaderOffset</span></div><div class="line"><span class="keyword">import</span> scala.reflect.<span class="type">ClassTag</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">KafkaManager</span>(<span class="params">val kafkaParams: <span class="type">Map</span>[<span class="type">String</span>, <span class="type">String</span>]</span>) <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">  <span class="comment">// KafkaCluster in Spark is overwrited by myself</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">val</span> kc = <span class="keyword">new</span> <span class="type">KafkaCluster</span>(kafkaParams)</div><div class="line">  <span class="comment">//根据offset创建DStream</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">createDirectStream</span></span>[<span class="type">K</span>: <span class="type">ClassTag</span>,</div><div class="line">                        <span class="type">V</span>: <span class="type">ClassTag</span>,</div><div class="line">                        <span class="type">KD</span> &lt;: <span class="type">Decoder</span>[<span class="type">K</span>]: <span class="type">ClassTag</span>,</div><div class="line">                        <span class="type">VD</span> &lt;: <span class="type">Decoder</span>[<span class="type">V</span>]: <span class="type">ClassTag</span></div><div class="line">                        ](ssc: <span class="type">StreamingContext</span>,</div><div class="line">                          kafkaParams: <span class="type">Map</span>[<span class="type">String</span>, <span class="type">String</span>],</div><div class="line">                          topics: <span class="type">Set</span>[<span class="type">String</span>]): <span class="type">InputDStream</span>[(<span class="type">K</span>, <span class="type">V</span>, <span class="type">String</span>)] = &#123;</div><div class="line">    <span class="keyword">val</span> groupId = kafkaParams.get(<span class="string">"group.id"</span>).get</div><div class="line">    <span class="comment">//在zookeeper上读取offsets前先根据实际情况更新offsets</span></div><div class="line">    setOrUpdateOffsets(topics, groupId)</div><div class="line">    <span class="comment">//从zookeeper上读取offset开始消费message</span></div><div class="line">    <span class="keyword">val</span> messages = &#123;</div><div class="line">      <span class="keyword">val</span> partitionsE = kc.getPartitions(topics)</div><div class="line">      <span class="keyword">if</span>(partitionsE.isLeft)</div><div class="line">        <span class="comment">// s"xx $&#123;&#125;" 字符串插值</span></div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">SparkException</span>(<span class="string">s"get kafka partition failed: <span class="subst">$&#123;partitionsE.left.get&#125;</span>"</span>)</div><div class="line">      <span class="keyword">val</span> partitions = partitionsE.right.get</div><div class="line">      <span class="keyword">val</span> consumerOffsetsE = kc.getConsumerOffsets(groupId, partitions)</div><div class="line">      <span class="keyword">if</span>(consumerOffsetsE.isLeft)</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">SparkException</span>(<span class="string">s"get kafka consumer offsets failed: <span class="subst">$&#123;consumerOffsetsE.left.get&#125;</span>"</span>)</div><div class="line">      <span class="keyword">val</span> consumerOffsets = consumerOffsetsE.right.get</div><div class="line">      <span class="comment">//从指定offsets处消费kafka</span></div><div class="line">      <span class="comment">//messageHandler = (mmd: MessageAndMetadata[String, String]) =&gt; (mmd.key(), mmd.message())</span></div><div class="line">      <span class="comment">//MessageAndMetadata里包含message的topic message等信息</span></div><div class="line">      <span class="type">KafkaUtils</span>.createDirectStream[<span class="type">K</span>, <span class="type">V</span>, <span class="type">KD</span>, <span class="type">VD</span>, (<span class="type">K</span>, <span class="type">V</span>, <span class="type">String</span>)](</div><div class="line">        ssc, kafkaParams, consumerOffsets, (mmd: <span class="type">MessageAndMetadata</span>[<span class="type">K</span>, <span class="type">V</span>]) =&gt; (mmd.key, mmd.message, mmd.topic)</div><div class="line">      )</div><div class="line">    &#125;</div><div class="line">    messages</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">def</span> <span class="title">setOrUpdateOffsets</span></span>(topics: <span class="type">Set</span>[<span class="type">String</span>], groupId: <span class="type">String</span>): <span class="type">Unit</span> =&#123;</div><div class="line">    topics.foreach(topic =&gt; &#123;</div><div class="line">      <span class="keyword">var</span> hasConsumerd = <span class="literal">true</span></div><div class="line">      <span class="keyword">val</span> partitionsE = kc.getPartitions(<span class="type">Set</span>(topic))</div><div class="line">      <span class="keyword">if</span>(partitionsE.isLeft)</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">SparkException</span>(<span class="string">s"get kafka partition failed: <span class="subst">$&#123;partitionsE.left.get&#125;</span>"</span>)</div><div class="line">      <span class="keyword">val</span> partitions = partitionsE.right.get</div><div class="line">      <span class="keyword">val</span> consumerOffsetsE = kc.getConsumerOffsets(groupId, partitions)</div><div class="line">      <span class="keyword">if</span>(consumerOffsetsE.isLeft) hasConsumerd = <span class="literal">false</span></div><div class="line">      <span class="comment">//某个groupid首次没有offset信息，会报错从头开始读</span></div><div class="line">      <span class="keyword">if</span>(hasConsumerd)&#123; <span class="comment">// 消费过</span></div><div class="line">        <span class="comment">/**</span></div><div class="line">          * 如果streaming程序执行的时候出现kafka.common.OffsetOutOfRangeException</div><div class="line">          * 说明zk上保存的offsets已经过时，即kafka的定时清理策略已经将包含该offsets的文件删除</div><div class="line">          * 针对这种情况，只要判断一下zk伤的consumerOffsets和earliestLeaderOffsets的大小</div><div class="line">          * 如果consumerOffsets比earliestLeaderOffsets小的话，说明consumerOffsets过时</div><div class="line">          * 这时把consumerOffsets更新为earliestLeaderOffsets</div><div class="line">          */</div><div class="line">        <span class="keyword">val</span> earliestLeaderOffsetsE = kc.getEarliestLeaderOffsets(partitions)</div><div class="line">        <span class="keyword">if</span>(earliestLeaderOffsetsE.isLeft)</div><div class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">SparkException</span>(<span class="string">s"get earliest leader offsets failed: <span class="subst">$&#123;earliestLeaderOffsetsE.left.get&#125;</span>"</span>)</div><div class="line">        <span class="keyword">val</span> earliestLeaderOffsets = earliestLeaderOffsetsE.right.get</div><div class="line">        <span class="keyword">val</span> consumerOffsets = consumerOffsetsE.right.get</div><div class="line">        <span class="comment">//可能只存在部分分区consumerOffsets过时，所以只更新过时分区的consumerOffsets为earliestLeaderOffsets</span></div><div class="line">        <span class="keyword">var</span> offsets: <span class="type">Map</span>[<span class="type">TopicAndPartition</span>, <span class="type">Long</span>] = <span class="type">Map</span>()</div><div class="line">        consumerOffsets.foreach(&#123;<span class="keyword">case</span>(tp, n) =&gt;</div><div class="line">          <span class="keyword">val</span> earliestLeaderOffset = earliestLeaderOffsets(tp).offset</div><div class="line">          <span class="keyword">if</span>(n &lt; earliestLeaderOffset)&#123;</div><div class="line">            println(<span class="string">"consumer group: "</span> + groupId + <span class="string">",topic: "</span> + tp.topic + <span class="string">",partition: "</span> + tp.partition +</div><div class="line">            <span class="string">" offsets已过时，更新为: "</span> + earliestLeaderOffset)</div><div class="line">            offsets += (tp -&gt; earliestLeaderOffset)</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">if</span> (!offsets.isEmpty)&#123;</div><div class="line">          kc.setConsumerOffsets(groupId, offsets)</div><div class="line">        &#125;</div><div class="line">      &#125;<span class="keyword">else</span>&#123; <span class="comment">// 没有消费过</span></div><div class="line">        <span class="keyword">val</span> reset = kafkaParams.get(<span class="string">"auto.offset.reset"</span>).map(_.toLowerCase)</div><div class="line">        <span class="keyword">var</span> leaderOffsets: <span class="type">Map</span>[<span class="type">TopicAndPartition</span>, <span class="type">LeaderOffset</span>] = <span class="literal">null</span></div><div class="line">        <span class="keyword">if</span>(reset == <span class="type">Some</span>(<span class="string">"smallest"</span>))&#123; <span class="comment">// 从头消费</span></div><div class="line">          <span class="keyword">val</span> leaderOffsetsE = kc.getEarliestLeaderOffsets(partitions)</div><div class="line">          <span class="keyword">if</span>(leaderOffsetsE.isLeft)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">SparkException</span>(<span class="string">s"get earliest leader offsets failed: <span class="subst">$&#123;leaderOffsetsE.left.get&#125;</span>"</span>)</div><div class="line">          leaderOffsets = leaderOffsetsE.right.get</div><div class="line">        &#125;<span class="keyword">else</span>&#123; <span class="comment">// 从最新offset处消费</span></div><div class="line">          <span class="keyword">val</span> leaderOffsetsE = kc.getLatestLeaderOffsets(partitions)</div><div class="line">          <span class="keyword">if</span>(leaderOffsetsE.isLeft)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">SparkException</span>(<span class="string">s"get latest leader offsets failed: <span class="subst">$&#123;leaderOffsetsE.left.get&#125;</span>"</span>)</div><div class="line">          leaderOffsets = leaderOffsetsE.right.get</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">val</span> offsets = leaderOffsets.map&#123;</div><div class="line">          <span class="keyword">case</span>(tp, offset) =&gt; (tp, offset.offset)</div><div class="line">        &#125;</div><div class="line">        kc.setConsumerOffsets(groupId, offsets)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">updateZKOffsets</span></span>(rdd: <span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">String</span>, <span class="type">String</span>)]): <span class="type">Unit</span> =&#123;</div><div class="line">    <span class="keyword">val</span> groupId = kafkaParams.get(<span class="string">"group.id"</span>).get</div><div class="line">    <span class="keyword">val</span> offsetsList = rdd.asInstanceOf[<span class="type">HasOffsetRanges</span>].offsetRanges</div><div class="line">    <span class="keyword">for</span>(offsets &lt;- offsetsList)&#123;</div><div class="line">      <span class="keyword">val</span> topicAndPartition = <span class="type">TopicAndPartition</span>(offsets.topic, offsets.partition)</div><div class="line">      <span class="keyword">val</span> o = kc.setConsumerOffsets(groupId, <span class="type">Map</span>((topicAndPartition, offsets.untilOffset)))</div><div class="line">      <span class="keyword">if</span>(o.isLeft)&#123;</div><div class="line">        println(<span class="string">s"Error updating the offset to Kafka cluster: <span class="subst">$&#123;o.left.get&#125;</span>"</span>)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>SparkKafkaStreaming.scala
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">import kafka.serializer.StringDecoder</div><div class="line">import org.apache.log4j.&#123;Level, Logger&#125;</div><div class="line">import org.apache.spark.SparkConf</div><div class="line">import org.apache.spark.streaming.kafka.KafkaManager</div><div class="line">import org.apache.spark.streaming.&#123;Durations, Seconds, StreamingContext&#125;</div><div class="line">import org.apache.spark.rdd.RDD</div><div class="line">object SparkKafkaStreaming &#123;</div><div class="line">  def processRdd(rdd: RDD[(String, String, String)]): Unit = &#123;</div><div class="line">    rdd.foreach(println)</div><div class="line">  &#125;</div><div class="line">  def main(args: Array[String]) &#123;</div><div class="line">    if (args.length &lt; 3) &#123;</div><div class="line">      System.err.println(</div><div class="line">        s"""</div><div class="line">           |Usage: DirectKafkaWordCount &lt;brokers&gt; &lt;topics&gt; &lt;groupid&gt;</div><div class="line">           |  &lt;brokers&gt; is a list of one or more Kafka brokers</div><div class="line">           |    &lt;topics&gt; is a list of one or more kafka topics to consume from</div><div class="line">           |      &lt;groupid&gt; is a consume group</div><div class="line">           |</div><div class="line">         """.stripMargin</div><div class="line">      )</div><div class="line">      System.exit(1)</div><div class="line">    &#125;</div><div class="line">    Logger.getLogger("org").setLevel(Level.WARN)</div><div class="line">    val Array(brokers, topics, groupId) = args</div><div class="line">    //create context with 2 second batch interval</div><div class="line">    val sparkConf = new SparkConf().setAppName("DirectKafkaWordCount")</div><div class="line">    sparkConf.setMaster("local[2]")</div><div class="line">    sparkConf.set("spakr.streaming.kafka.maxRatePerPartition", "5")</div><div class="line">    sparkConf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")</div><div class="line">    val ssc = new StreamingContext(sparkConf, Durations.seconds(5))</div><div class="line">    ssc.sparkContext.setLogLevel("WARN")</div><div class="line">    //create direct kafka stream with brokers and topics</div><div class="line">    val topicsSet = topics.split(",").toSet</div><div class="line">    val kafkaParams = Map[String, String](</div><div class="line">      "metadata.broker.list" -&gt; brokers,</div><div class="line">      "group.id" -&gt; groupId, //con_group</div><div class="line">      "auto.offset.reset" -&gt; "smallest"</div><div class="line">    )</div><div class="line">    val km = new KafkaManager(kafkaParams)</div><div class="line">    val messages = km.createDirectStream[String, String, StringDecoder, StringDecoder](</div><div class="line">      ssc, kafkaParams, topicsSet</div><div class="line">    )</div><div class="line">    messages.foreachRDD(rdd =&gt; &#123;</div><div class="line">      if(!rdd.isEmpty())&#123;</div><div class="line">        processRdd(rdd)</div><div class="line">        km.updateZKOffsets(rdd)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">    ssc.start()</div><div class="line">    ssc.awaitTermination()</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="hbase"><a href="#hbase" class="headerlink" title="hbase"></a>hbase</h1><h3 id="配置文件-4"><a href="#配置文件-4" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">//Here you have to set the path where you want HBase to store its files.</div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">//Here you have to set the path where you want HBase to store its built</div><div class="line">in zookeeper files.</div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.dataDir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/zk1/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>/hbase/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">description</span>&gt;</span>Temporary directory on the local filesystem.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.maxClientCnxns<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>35<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>localhost:2182,localhost:2183,localhost:2184<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="启动hbase服务"><a href="#启动hbase服务" class="headerlink" title="启动hbase服务"></a>启动hbase服务</h3><pre><code>start-hbase.sh
+</code></pre><h3 id="启动zookeeper的node"><a href="#启动zookeeper的node" class="headerlink" title="启动zookeeper的node"></a>启动zookeeper的node</h3><pre><code>hbase-daemon.sh start master
+</code></pre><h3 id="启动命令行交互模式"><a href="#启动命令行交互模式" class="headerlink" title="启动命令行交互模式"></a>启动命令行交互模式</h3><pre><code>hbase shell
+</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> hbaseconf = <span class="type">HBaseConfiguration</span>.create()</div><div class="line">hbaseconf.set(<span class="string">"hbase.zookeeper.quorum"</span>, <span class="string">"localhost"</span>)</div><div class="line">hbaseconf.set(<span class="string">"hbase.zookeeper.property.clientPort"</span>, <span class="string">"2182"</span>)</div><div class="line"><span class="keyword">val</span> table = <span class="keyword">new</span> <span class="type">HTable</span>(hbaseconf, tablename)</div><div class="line"><span class="keyword">val</span> theput = <span class="keyword">new</span> <span class="type">Put</span>(<span class="type">Bytes</span>.toBytes(<span class="string">"001"</span>))</div><div class="line"><span class="keyword">val</span> family = <span class="string">"info"</span></div><div class="line"><span class="keyword">val</span> qualifier = <span class="string">"name"</span></div><div class="line"><span class="keyword">val</span> value = <span class="string">"xerxes"</span></div><div class="line">theput.addColumn(<span class="type">Bytes</span>.toBytes(family),<span class="type">Bytes</span>.toBytes(qualifier),<span class="type">Bytes</span>.toBytes(value))</div><div class="line">table.put(theput)</div><div class="line">table.close()</div></pre></td></tr></table></figure>
           
         
       
@@ -827,127 +1188,6 @@ $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginni
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2017/07/24/mac环境配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xerxes">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="y-xerxes's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/24/mac环境配置/" itemprop="url">
-                  mac环境配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T18:13:06+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>你好，欢迎来到我的博客。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -993,7 +1233,7 @@ $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginni
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
