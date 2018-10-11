@@ -97,7 +97,7 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
 <meta property="og:description" content="hexo更新文章 1). hexo new “file_name” 2). hexo generate 3). hexo deploy
 mysqlclient 代替 MySQLdb
 linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“local_address”: “127.0.0.1”,“local_port”:1080,“password”">
-<meta property="og:updated_time" content="2018-08-04T11:44:39.000Z">
+<meta property="og:updated_time" content="2018-10-09T15:58:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tips">
 <meta name="twitter:description" content="hexo更新文章 1). hexo new “file_name” 2). hexo generate 3). hexo deploy
@@ -332,6 +332,15 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
 <li>mysqlclient 代替 MySQLdb</li>
 <li>linux配置shadowsocks<br>配置文件：<br>{<br>“server”:”<em>“,<br>“server_port”:</em>,<br>“local_address”: “127.0.0.1”,<br>“local_port”:1080,<br>“password”:”<em>bh</em>“,<br>“timeout”:300,<br>“method”:”<em>aes-256-cfb</em>“<br>}<br>启动：<br>ssserver -c shadowsocks.json -d start</li>
 <li>ubuntu分辨率<br> 1）. cvt 1680 1050<br> 2）. sudo xrandr –newmode “1680<em>1050_60.00” 146.25 1680 1784 1960 2240 1050 1053 1059 1089 -hsync +vsync<br> 3）. sudo xrandr –addmode VGA-1 “1680</em>1050_60.00”<br> 4）. sudo xrandr –output VGA-1 –mode “1680*1050_60.00”</li>
+<li>多思考，不管思考到了什么，记下来然后Google，会有新的发现</li>
+<li>ps -ef | grep “进程名字”<br>lsof -nP -iTCP -sTCP:LISTEN | grep “进程id”</li>
+<li>后台启动mysql<ol>
+<li>mysqld_safe –user=mysql &amp;</li>
+<li>brew services start mysql<br>my.cnf位置：/usr/local/etc/my.cnf<br>报错：”Can’t connect to local MySQL server through socket ‘/Applications/MAMP/tmp/mysql/mysql.sock’ (2)”<br>解决：ln -s /tmp/mysql.sock /Applications/MAMP/tmp/mysql</li>
+</ol>
+</li>
+<li>后台启动mongodb<br> sudo mongod –dbpath=/data/db –logpath=/data/db/mongodb.log –fork</li>
+<li>为pip添加镜像<br> pip install selenium -i <a href="https://pypi.douban.com/simple/" target="_blank" rel="external">https://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com</li>
 </ol>
 
       
@@ -440,7 +449,7 @@ linux配置shadowsocks配置文件：{“server”:”“,“server_port”:,“
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
