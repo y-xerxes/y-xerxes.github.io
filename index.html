@@ -324,7 +324,16 @@
       
         
           
-            
+            <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
+<p>Mesos and Spark are powerful technologies for processing large workloads on a distributed cluster. Airflow is a framework to write, schedule, and monitor jobs. In conjunction, these three technologies provide a powerful way build out workflows backed by large datasets.</p>
+</blockquote>
+<h1 id="Spark-with-Mesos"><a href="#Spark-with-Mesos" class="headerlink" title="Spark with Mesos"></a>Spark with Mesos</h1><blockquote>
+<p>mesos类似于一个抽象化的linux核心。在mesos上运行framework，由scheduler和executor组成。scheduler接收mesos master传来的resource，在mesos nodes上启动executors。</p>
+</blockquote>
+<h1 id="Airflow-with-Spark"><a href="#Airflow-with-Spark" class="headerlink" title="Airflow with Spark"></a>Airflow with Spark</h1><blockquote>
+<p>To run Spark with Airflow, we’ll use the SparkSubmitOperator, which essentially wraps the spark-submit command. The details of how to use this operator are in the README. We’ll run Airflow with the CeleryExecutor, with Redis and Postgresql for persistence. It’s important to keep in mind, however, that the actual work is not being done on the Celery workers but on the Mesos nodes. There’s also a MesosExecutor with which Airflow would directly distribute its tasks onto the Mesos cluster.</p>
+</blockquote>
+
           
         
       
@@ -994,7 +1003,11 @@ a1.sinks.k1.channel = c1
 </code></pre><h3 id="启动zookeeper的node"><a href="#启动zookeeper的node" class="headerlink" title="启动zookeeper的node"></a>启动zookeeper的node</h3><pre><code>hbase-daemon.sh start master
 </code></pre><h3 id="启动命令行交互模式"><a href="#启动命令行交互模式" class="headerlink" title="启动命令行交互模式"></a>启动命令行交互模式</h3><pre><code>hbase shell
 </code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> hbaseconf = <span class="type">HBaseConfiguration</span>.create()</div><div class="line">hbaseconf.set(<span class="string">"hbase.zookeeper.quorum"</span>, <span class="string">"localhost"</span>)</div><div class="line">hbaseconf.set(<span class="string">"hbase.zookeeper.property.clientPort"</span>, <span class="string">"2182"</span>)</div><div class="line"><span class="keyword">val</span> table = <span class="keyword">new</span> <span class="type">HTable</span>(hbaseconf, tablename)</div><div class="line"><span class="keyword">val</span> theput = <span class="keyword">new</span> <span class="type">Put</span>(<span class="type">Bytes</span>.toBytes(<span class="string">"001"</span>))</div><div class="line"><span class="keyword">val</span> family = <span class="string">"info"</span></div><div class="line"><span class="keyword">val</span> qualifier = <span class="string">"name"</span></div><div class="line"><span class="keyword">val</span> value = <span class="string">"xerxes"</span></div><div class="line">theput.addColumn(<span class="type">Bytes</span>.toBytes(family),<span class="type">Bytes</span>.toBytes(qualifier),<span class="type">Bytes</span>.toBytes(value))</div><div class="line">table.put(theput)</div><div class="line">table.close()</div></pre></td></tr></table></figure>
-<h1 id="spark"><a href="#spark" class="headerlink" title="spark"></a>spark</h1><h1 id="mesos"><a href="#mesos" class="headerlink" title="mesos"></a>mesos</h1><p>  git clone <a href="https://gitbox.apache.org/repos/asf/mesos.git" target="_blank" rel="external">https://gitbox.apache.org/repos/asf/mesos.git</a></p>
+<h1 id="spark"><a href="#spark" class="headerlink" title="spark"></a>spark</h1><h1 id="mesos"><a href="#mesos" class="headerlink" title="mesos"></a>mesos</h1><ol>
+<li>手动安装与编译<br>git clone <a href="https://gitbox.apache.org/repos/asf/mesos.git" target="_blank" rel="external">https://gitbox.apache.org/repos/asf/mesos.git</a><br>cd mesos<br>./bootstrap<br>mkdir build<br>cd build<br>../configure<br>make<br>make check<br>make install</li>
+<li>brew安装<br>brew install mesos (安装位置：/usr/local/Cellar/mesos/1.6.1)</li>
+<li>启动master节点<br>/usr/local/sbin/mesos-master –registry=in_memory –ip=127.0.0.1</li>
+</ol>
 <h1 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h1><h1 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h1><h1 id="livy"><a href="#livy" class="headerlink" title="livy"></a>livy</h1><ol>
 <li>在livy-env.sh中配置<blockquote>
 <p>export SPARK_HOME=/Users/zhangyaxing/Desktop/spark<br>export HADOOP_CONF_DIR=/Users/zhangyaxing/Desktop/hadoop-2.4.1/conf</p>

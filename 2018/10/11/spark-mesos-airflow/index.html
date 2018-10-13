@@ -87,13 +87,19 @@
 
 
 
+<meta name="description" content="Overview
+Mesos and Spark are powerful technologies for processing large workloads on a distributed cluster. Airflow is a framework to write, schedule, and monitor jobs. In conjunction, these three tec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spark+mesos+airflow">
 <meta property="og:url" content="http://yoursite.com/child/2018/10/11/spark-mesos-airflow/index.html">
 <meta property="og:site_name" content="y-xerxes's Blog">
-<meta property="og:updated_time" content="2018-10-11T14:11:58.000Z">
+<meta property="og:description" content="Overview
+Mesos and Spark are powerful technologies for processing large workloads on a distributed cluster. Airflow is a framework to write, schedule, and monitor jobs. In conjunction, these three tec">
+<meta property="og:updated_time" content="2018-10-11T15:28:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spark+mesos+airflow">
+<meta name="twitter:description" content="Overview
+Mesos and Spark are powerful technologies for processing large workloads on a distributed cluster. Airflow is a framework to write, schedule, and monitor jobs. In conjunction, these three tec">
 
 
 
@@ -318,7 +324,16 @@
       
 
       
-        
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><blockquote>
+<p>Mesos and Spark are powerful technologies for processing large workloads on a distributed cluster. Airflow is a framework to write, schedule, and monitor jobs. In conjunction, these three technologies provide a powerful way build out workflows backed by large datasets.</p>
+</blockquote>
+<h1 id="Spark-with-Mesos"><a href="#Spark-with-Mesos" class="headerlink" title="Spark with Mesos"></a>Spark with Mesos</h1><blockquote>
+<p>mesos类似于一个抽象化的linux核心。在mesos上运行framework，由scheduler和executor组成。scheduler接收mesos master传来的resource，在mesos nodes上启动executors。</p>
+</blockquote>
+<h1 id="Airflow-with-Spark"><a href="#Airflow-with-Spark" class="headerlink" title="Airflow with Spark"></a>Airflow with Spark</h1><blockquote>
+<p>To run Spark with Airflow, we’ll use the SparkSubmitOperator, which essentially wraps the spark-submit command. The details of how to use this operator are in the README. We’ll run Airflow with the CeleryExecutor, with Redis and Postgresql for persistence. It’s important to keep in mind, however, that the actual work is not being done on the Celery workers but on the Mesos nodes. There’s also a MesosExecutor with which Airflow would directly distribute its tasks onto the Mesos cluster.</p>
+</blockquote>
+
       
     </div>
 
@@ -409,8 +424,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg"
@@ -454,6 +478,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-with-Mesos"><span class="nav-number">2.</span> <span class="nav-text">Spark with Mesos</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Airflow-with-Spark"><span class="nav-number">3.</span> <span class="nav-text">Airflow with Spark</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
