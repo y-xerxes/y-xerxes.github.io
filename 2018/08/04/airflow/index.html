@@ -97,7 +97,7 @@
 <meta property="og:description" content="构建与原理
 组建 airflow作为调度工具，由Webserver、Scheduler、Worker三个组件互相配合完成工作。三个组件之间没有强依赖关系，依靠共用数据库和消息队列完成调度任务。因此，在多台机器上部署airflow，配置相同的元数据库和消息队列，以此来实现airflow的集群模式。
 工作原理 1) airflow启动时，会将dag中的相关信息写入数据库。 2) scheduler会按">
-<meta property="og:updated_time" content="2018-10-09T15:52:00.000Z">
+<meta property="og:updated_time" content="2018-10-23T14:57:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="airflow">
 <meta name="twitter:description" content="构建与原理
@@ -329,29 +329,32 @@
       
         <h1 id="构建与原理"><a href="#构建与原理" class="headerlink" title="构建与原理"></a>构建与原理</h1><ol>
 <li>组建<br> airflow作为调度工具，由Webserver、Scheduler、Worker三个组件互相配合完成工作。三个组件之间没有强依赖关系，依靠共用数据库和消息队列完成调度任务。因此，在多台机器上部署airflow，配置相同的元数据库和消息队列，以此来实现airflow的集群模式。</li>
-<li>工作原理<br> 1) airflow启动时，会将dag中的相关信息写入数据库。<br> 2) scheduler会按照指定频次查询数据库，检测是否有需要触发的任务。<br> 3) 当scheduler检测到需要触发的任务时，会向消息队列发送一条Message。<br> 4) Celery会定时查询消息队列中，是否有Message。当检测到Message时，会将Message中包含的任务信息下发给Worker，由Worker执行具体任务。<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1> pip install airflow<br> 或者：<br> pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">https://pypi.tuna.tsinghua.edu.cn/simple</a> airflow</li>
+<li>工作原理<br> 1) airflow启动时，会将dag中的相关信息写入数据库。<br> 2) scheduler会按照指定频次查询数据库，检测是否有需要触发的任务。<br> 3) 当scheduler检测到需要触发的任务时，会向消息队列发送一条Message。<br> 4) Celery会定时查询消息队列中，是否有Message。当检测到Message时，会将Message中包含的任务信息下发给Worker，由Worker执行具体任务。</li>
+<li>切换CeleryExecutor<br> why？<pre><code>1. 默认是使用的SequentialExecutor, 只能顺次执行任务。
+2. Only works with the CeleryExecutor, sorry 
+</code></pre> how？<pre><code>sudo pip install celery
+</code></pre></li>
 </ol>
-<h1 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h1><pre><code>airflow initdb
-</code></pre><h1 id="修改默认数据库"><a href="#修改默认数据库" class="headerlink" title="修改默认数据库"></a>修改默认数据库</h1><pre><code>找到$AIRFLOW_HOME/airflow.cfg配置文件，进行如下修改:
-    sql_alchemy_conn = mysql://root:rootroot@localhost:3306/airflow
-到mysql中创建新库
-    create database airflow;
-重新初始化服务器数据库
-    airflow initdb
-</code></pre><h1 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h1><pre><code>airflow webserver
-</code></pre><h1 id="测试和验证"><a href="#测试和验证" class="headerlink" title="测试和验证"></a>测试和验证</h1><pre><code>1). 先运行一下python文件，如果你的脚本没有抛出异常，这意味着你代码中没有可怕的错误，并且你的Airflow环境是健全的。
-2). 命令行元数据验证
-    airflow list_dags
-    airflow list_tasks dag_name
-    airflow list_tasks dag_name --tree
-    airflow test dag_name task_name datetime
-</code></pre><h1 id="启动任务-scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动"><a href="#启动任务-scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动" class="headerlink" title="启动任务[scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动]"></a>启动任务[scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动]</h1><pre><code>airflow scheduler
-</code></pre><h1 id="切换CeleryExecutor"><a href="#切换CeleryExecutor" class="headerlink" title="切换CeleryExecutor"></a>切换CeleryExecutor</h1><pre><code>why？
-    1. 默认是使用的SequentialExecutor, 只能顺次执行任务。
-    2. Only works with the CeleryExecutor, sorry 
-how？
-    sudo pip install celery
-</code></pre>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li>安装<br> pip install airflow<br> or：<br> pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">https://pypi.tuna.tsinghua.edu.cn/simple</a> airflow</li>
+<li>初始化数据库<br> airflow initdb</li>
+<li><p>修改默认数据库<br> 找到$AIRFLOW_HOME/airflow.cfg配置文件，进行如下修改:</p>
+<pre><code>sql_alchemy_conn = mysql://root:rootroot@localhost:3306/airflow
+</code></pre><p> 到mysql中创建新库</p>
+<pre><code>create database airflow;
+</code></pre><p> 重新初始化服务器数据库</p>
+<pre><code>airflow initdb
+</code></pre></li>
+<li><p>启动服务<br> airflow webserver</p>
+</li>
+<li>测试和验证<br> 1). 先运行一下python文件，如果你的脚本没有抛出异常，这意味着你代码中没有可怕的错误，并且你的Airflow环境是健全的。<br> 2). 命令行元数据验证<pre><code>airflow list_dags
+airflow list_tasks dag_name
+airflow list_tasks dag_name --tree
+airflow test dag_name task_name datetime
+</code></pre></li>
+<li>启动任务[scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动]<br> airflow scheduler</li>
+</ol>
+
       
     </div>
 
@@ -510,7 +513,7 @@ how？
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构建与原理"><span class="nav-number">1.</span> <span class="nav-text">构建与原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化数据库"><span class="nav-number">3.</span> <span class="nav-text">初始化数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改默认数据库"><span class="nav-number">4.</span> <span class="nav-text">修改默认数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动服务"><span class="nav-number">5.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试和验证"><span class="nav-number">6.</span> <span class="nav-text">测试和验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动任务-scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动"><span class="nav-number">7.</span> <span class="nav-text">启动任务[scheduler启动后，DAG目录下的dags就会根据设定的时间定时启动]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切换CeleryExecutor"><span class="nav-number">8.</span> <span class="nav-text">切换CeleryExecutor</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构建与原理"><span class="nav-number">1.</span> <span class="nav-text">构建与原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
 
           </div>
