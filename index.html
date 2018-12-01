@@ -247,6 +247,320 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/12/01/pandas入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xerxes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="y-xerxes's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/12/01/pandas入门/" itemprop="url">
+                  pandas入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T14:33:24+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Series和DataFrame的区别"><a href="#Series和DataFrame的区别" class="headerlink" title="Series和DataFrame的区别"></a>Series和DataFrame的区别</h1><h3 id="Series和DataFrame的区别-1"><a href="#Series和DataFrame的区别-1" class="headerlink" title="Series和DataFrame的区别"></a>Series和DataFrame的区别</h3><blockquote>
+<p>Series是一维的，DataFrame是二维的</p>
+<p>Series只有index没有column，DataFrame有index也有column</p>
+<p>Series和DataFrame都可以用列表和字典构建，Series只能指定index，DataFrame可以指定index和column</p>
+</blockquote>
+<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><blockquote>
+<p>Series是一维的，类似于一个字典，通过key值定义index</p>
+</blockquote>
+<ol>
+<li>用列表构建<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s = pd.Series([7, &quot;Beijing&quot;, 2.17, -12345, &quot;Happy&quot;], index=[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;])</div><div class="line">print(s)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">A          7</div><div class="line">B    Beijing</div><div class="line">C       2.17</div><div class="line">D     -12345</div><div class="line">E      Happy</div><div class="line">dtype: object</div></pre></td></tr></table></figure></p>
+<ol>
+<li>用字典构建<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apts = &#123;&quot;Beijing&quot;: 55000, &quot;Shanghai&quot;: 60000, &quot;Shenzhen&quot;: 50000, &quot;Hangzhou&quot;: 20000, &quot;Guangzhou&quot;: 20000, &quot;Suzhou&quot;: None&#125; </div><div class="line">apts = pd.Series(apts, name=&quot;price&quot;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Beijing      55000.0</div><div class="line">Guangzhou    20000.0</div><div class="line">Hangzhou     20000.0</div><div class="line">Shanghai     60000.0</div><div class="line">Shenzhen     50000.0</div><div class="line">Suzhou           NaN</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>选择数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">apts[3]   结果为：60000.0/</div><div class="line">apts[[3]]   结果为：Shanghai    60000.0</div><div class="line">apts[[1,2,3,4]]</div><div class="line">apts[[&quot;Guangzhou&quot;,&quot;Hangzhou&quot;,&quot;Shanghai&quot;,&quot;Shenzhen&quot;]]</div><div class="line">apts[&quot;Guangzhou&quot;:&quot;Shenzhen&quot;]</div><div class="line">apts[1:5]</div><div class="line">apts[1:-1]</div></pre></td></tr></table></figure>
+</li>
+<li><p>判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apts[apts &lt; 50000]</div><div class="line">apts[apts.index != &quot;Beijing&quot;]</div></pre></td></tr></table></figure>
+</li>
+<li><p>增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tem=pd.Series(&#123;&quot;Hefei&quot;:20000&#125;)</div><div class="line">apts=apts.append(tem)</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apts=apts.drop(&quot;Hefei&quot;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><blockquote>
+<p>DataFrame是二维的，类似一张表，外层字典的key定义column，内层字典的key定义index，还可以用Series创建</p>
+</blockquote>
+<ol>
+<li>用列表构建<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d5 = pd.DataFrame([1,2,3])</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   0</div><div class="line">0  1</div><div class="line">1  2</div><div class="line">2  3</div></pre></td></tr></table></figure></p>
+<ol>
+<li>用字典构建<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data = [&#123;&quot;Tom&quot;: 999999, &quot;John&quot;: 50000, &quot;Lily&quot;: 1000&#125;, &#123;&quot;Tom&quot;: 99999, &quot;John&quot;: 8000, &quot;Lily&quot;: 200&#125;] te=pd.DataFrame(data,columns=[&quot;Tom&quot;,&quot;John&quot;,&quot;Lily&quot;],index=[&quot;one&quot;,&quot;two&quot;])</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">        Tom   John  Lily</div><div class="line">one  999999  50000  1000</div><div class="line">two   99999   8000   200</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>用Series构建，如果没有指定column，会把Series的key当作DataFrame的column </p>
+<p> 1) 用列表构建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">prices =pd.Series(&#123;&apos;西瓜&apos;:2, &apos;铅笔&apos;:1, &apos;本子&apos;:3&#125;) units =pd.Series(&#123;&apos;西瓜&apos;:&apos;kg&apos;, &apos;铅笔&apos;:&apos;zhi&apos;, &apos;本子&apos;:&apos;ge&apos;&#125;) number =pd.Series(&#123;&apos;西瓜&apos;:1.6, &apos;铅笔&apos;:2, &apos;本子&apos;:1&#125;) shopping = pd.DataFrame(&#123;&apos;price&apos;:prices, &apos;units&apos;:units,\ &apos;number&apos;:number &#125;)</div><div class="line">shopping = pd.DataFrame([prices,units])</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   本子  西瓜   铅笔</div><div class="line">0   3   2    1</div><div class="line">1  ge  kg  zhi</div></pre></td></tr></table></figure></p>
+<pre><code>2) 用字典构建
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">prices =pd.Series(&#123;&apos;西瓜&apos;:2, &apos;铅笔&apos;:1, &apos;本子&apos;:3&#125;) units =pd.Series(&#123;&apos;西瓜&apos;:&apos;kg&apos;, &apos;铅笔&apos;:&apos;zhi&apos;, &apos;本子&apos;:&apos;ge&apos;&#125;) number =pd.Series(&#123;&apos;西瓜&apos;:1.6, &apos;铅笔&apos;:2, &apos;本子&apos;:1&#125;) shopping = pd.DataFrame(&#123;&apos;price&apos;:prices, &apos;units&apos;:units,\ &apos;number&apos;:number &#125;)</div><div class="line">shopping1 = pd.DataFrame(&#123;&quot;prices&quot;:prices,&quot;units&quot;:units&#125;)</div></pre></td></tr></table></figure>
+<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">本子       3    ge</div><div class="line">西瓜       2    kg</div><div class="line">铅笔       1   zhi</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>选择</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#使用loc方法选择某一行</div><div class="line">df.loc[&quot;Beijing&quot;]</div><div class="line">df.iloc[3]</div></pre></td></tr></table></figure>
+</li>
+<li><p>增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df = df.append(DataFrame)</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df = df.drop(DataFrame)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/11/06/git-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xerxes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="file:///Users/zhangyaxing/Desktop/hexo/猫头.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="y-xerxes's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/11/06/git-note/" itemprop="url">
+                  git-note
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T23:42:53+08:00">
+                2018-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="git基础"><a href="#git基础" class="headerlink" title="git基础"></a>git基础</h1><h3 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h3><blockquote>
+<p>git有三种状态：1.已提交 2.已修改 3.已暂存;git有三个工作区域的概念： 1.git仓库 2.工作目录 3.暂存区</p>
+<h3 id="基本工作流程"><a href="#基本工作流程" class="headerlink" title="基本工作流程"></a>基本工作流程</h3><ol>
+<li>在工作目录中修改文件</li>
+<li>暂存文件，将文件的快照放入暂存区域</li>
+<li>提交更新，找到暂存区域的文件，将快照永久性存储到git仓库目录</li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2018/10/11/spark-mesos-airflow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1471,7 +1785,6 @@ a1.sinks.k1.channel = c1
 <li>mysqlclient 代替 MySQLdb</li>
 <li>linux配置shadowsocks<br>配置文件：<br>{<br>“server”:”<em>“,<br>“server_port”:</em>,<br>“local_address”: “127.0.0.1”,<br>“local_port”:1080,<br>“password”:”<em>bh</em>“,<br>“timeout”:300,<br>“method”:”<em>aes-256-cfb</em>“<br>}<br>启动：<br>ssserver -c shadowsocks.json -d start</li>
 <li>ubuntu分辨率<br> 1）. cvt 1680 1050<br> 2）. sudo xrandr –newmode “1680<em>1050_60.00” 146.25 1680 1784 1960 2240 1050 1053 1059 1089 -hsync +vsync<br> 3）. sudo xrandr –addmode VGA-1 “1680</em>1050_60.00”<br> 4）. sudo xrandr –output VGA-1 –mode “1680*1050_60.00”</li>
-<li>多思考，不管思考到了什么，记下来然后Google，会有新的发现</li>
 <li>ps -ef | grep “进程名字”<br>lsof -nP -iTCP -sTCP:LISTEN | grep “进程id”</li>
 <li>后台启动mysql<ol>
 <li>mysqld_safe –user=mysql &amp;</li>
@@ -1560,7 +1873,7 @@ a1.sinks.k1.channel = c1
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
